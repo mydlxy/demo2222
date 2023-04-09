@@ -1,0 +1,33 @@
+server:
+  port: 9000
+#mybatis-plus:
+#  mapper-locations: classpath:mappers/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: ASSIGN_UUID
+#      db-type: MYSQL
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/testmp?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+  # 单个文件大小限制默认 1M ，单次请求总文件大小限制10M
+  servlet:
+    multipart:
+      max-file-size: 20MB  #单个文件大小
+      max-request-size: 200MB  #单次请求总文件大小
+
+      # 控制台打印日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+    #日志输出到指定文件；；这个路径是项目相对路径
+#logging:
+#  file:
+#    name: log/mydLog.log #相对路径的日志文件，也可以写绝对路径：d:/yyy/myd-log.txt
+#  level:
+#    root: error
+
